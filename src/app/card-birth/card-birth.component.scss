@@ -1,0 +1,46 @@
+.form-card {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px 30px;
+    box-shadow: lightgray 4px 4px 20px;
+  }
+  .progress {
+    height: 100%; /* Hauteur de la barre de progression intérieure */
+    width: 0; /* La barre de progression intérieure commence à zéro */
+    background-color: #007bff; /* Couleur de la barre de progression verte */
+    color: white;
+    border-radius: 4px; /* Coins arrondis de la barre de progression intérieure */
+  }
+  
+  .progress-bar {
+    height: 20px;
+  background-color: #f8d7da; /* Couleur de fond de la barre de progression (rouge pour les erreurs) */
+  border: 1px solid #d6c8c8; /* Bordure de la barre de progression */
+  border-radius: 4px; /* Coins arrondis de la barre de progression */
+  margin-bottom: 20px;
+  position: relative;
+  }
+  
+  .progress-circles {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .progress-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #28a745; /* Couleur du cercle vert */
+    border: 2px solid #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .progress-circle.completed {
+    background-color: #28a745; /* Couleur du cercle vert pour les étapes complétées */
+  }
+  

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,11 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent {
-  @Input() test : boolean = false
 constructor(private route : Router){
 }
 next(){
   this.route.navigateByUrl('demandes')
-  this.test = true
 }
 }
