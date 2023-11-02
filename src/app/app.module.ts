@@ -10,7 +10,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardMarriageComponent } from './card-marriage/card-marriage.component';
 import { CardBirthComponent } from './card-birth/card-birth.component';
 import { CardListComponent } from './card-list/card-list.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [

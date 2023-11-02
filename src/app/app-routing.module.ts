@@ -12,6 +12,9 @@ const routes: Routes = [
     path : 'birth', component: CardBirthComponent
   },
   {
+    path : "**" , component: CarouselComponent
+  },
+  {
     path: '' , component : CarouselComponent
   }
 ];

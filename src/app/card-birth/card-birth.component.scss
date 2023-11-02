@@ -1,5 +1,6 @@
 .form-card {
     box-sizing: border-box;
+    position: relative;
     width: 50%;
     margin: 20px auto;
     padding: 10px 30px;
@@ -14,7 +15,7 @@
   }
   
   .progress-bar {
-    height: 20px;
+  height: 20px;
   background-color: #f8d7da; /* Couleur de fond de la barre de progression (rouge pour les erreurs) */
   border: 1px solid #d6c8c8; /* Bordure de la barre de progression */
   border-radius: 4px; /* Coins arrondis de la barre de progression */
@@ -43,4 +44,50 @@
   .progress-circle.completed {
     background-color: #28a745; /* Couleur du cercle vert pour les étapes complétées */
   }
+
+  .form-check {
+    margin-bottom: 15px;
+  }
+  
+  .form-check-label {
+    margin-right: 20px;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }
+
+  fieldset {
+    border: 2px solid rgb(232, 233, 247);
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .bi-person-check,.bi-house-check,.bi-person-check-fill,.bi-calendar2-check,.bi-check2-circle{
+    color: #28a745;
+  }
+
+  /* Custom styling for the circular element */
+.valid-circle {
+  width: 10px;
+  height: 10px;
+  background-color: #28a745; /* Green color for validity indication */
+  border-radius: 50%; /* Creates a circular shape */
+}
+
+  
+  /* Dans votre fichier CSS personnalisé */
+@media screen and (max-width: 767px) {
+  .mb-mobile {
+    margin-bottom: 100px; /* Ajustez la valeur de la marge selon vos besoins */
+  }
+}
+
+/* pour les ordinateurs et autres */
+@media screen and (min-width: 767px) {
+  .mb-mobile {
+    margin-bottom: 100px; /* Ajustez la valeur de la marge selon vos besoins */
+  }
+}
+  
   
