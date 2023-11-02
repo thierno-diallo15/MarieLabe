@@ -1,8 +1,8 @@
 <div class="form-card w-75">
-  <h2 class="text-center my-4">Birth Certificate Information</h2>   
-<div class="container mt-5 my-4 bg-light">
+  <h2 class="text-center">Birth Certificate Information</h2>   
+  <div class="container mt-5 my-4 bg-light">
     <div class="progress-bar">
-      <div class="progress" role="progressbar" [style.width]="(currentStep - 1) * 50 + '%'">
+      <div class="progress" [style.width]="(currentStep - 1) * 50 + '%'">
         {{ currentStep }}
       </div>
     </div>
@@ -53,8 +53,8 @@
         <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onSubmit()">Soumettre</button>
         </div>
       </form>
+      </div>
     </div>
-  </div>
   </div>
   
   
