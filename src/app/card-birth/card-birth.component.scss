@@ -56,5 +56,12 @@
   .form-check-input {
     margin-right: 10px;
   }
+
+  /* Dans votre fichier CSS personnalisé */
+@media (max-width: 767px) {
+  .mb-mobile {
+    margin-bottom: 120px; /* Ajustez la valeur de la marge selon vos besoins */
+  }
+}
   
   
