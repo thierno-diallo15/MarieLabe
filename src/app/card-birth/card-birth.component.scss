@@ -1,5 +1,6 @@
 .form-card {
     box-sizing: border-box;
+    position: relative;
     width: 50%;
     margin: 20px auto;
     padding: 10px 30px;
@@ -43,4 +44,17 @@
   .progress-circle.completed {
     background-color: #28a745; /* Couleur du cercle vert pour les étapes complétées */
   }
+
+  .form-check {
+    margin-bottom: 15px;
+  }
+  
+  .form-check-label {
+    margin-right: 20px;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }
+  
   
