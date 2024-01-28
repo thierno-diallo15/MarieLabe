@@ -1,35 +1,38 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-card-birth',
   templateUrl: './card-birth.component.html',
   styleUrls: ['./card-birth.component.scss']
 })
-export class CardBirthComponent {
+export class CardBirthComponent implements OnInit {
  tabNom : string [] = ["Parent","Autre"]
- currentStep =1;
- demandeExtraitForm: FormGroup;
+ currentStep = 1;
+ hasText: boolean = false;
+ demandeExtraitForm1 !: FormGroup;
+ demandeExtraitForm2 !: FormGroup;
+ demandeExtraitForm3 !: FormGroup;
+
  constructor(private formBuilder: FormBuilder){ 
-  this.demandeExtraitForm=this.formBuilder.group({
-    nomPere:[null, Validators.required],
-    prenomPere:[null,Validators.required],
-    dateNaissancePere:[null,Validators.required],
-    lieuNaissancePere:[null,Validators.required],
-    professionPere:[null,Validators.required],
-    adressePere:[null,Validators.required],
-    telephonePere:[null,Validators.required],
-    nomMere:[null, Validators.required],
-    prenomMere:[null,Validators.required],
-    dateNaissanceMere:[null,Validators.required],
-    lieuNaissanceMere:[null,Validators.required],
-    professionMere:[null,Validators.required],
-    adresseMere:[null,Validators.required],
-    telephoneMere:[null,Validators.required]
-    })
  }
   // Autres champs nécessaires
 
+  ngOnInit(): void {
+    this.demandeExtraitForm1 =this.formBuilder.group({
+      demandeurPrenom:[null, Validators.required],
+      demandeurNom:[null,Validators.required],
+      demandeurSexe:[null,Validators.required],
+      demandeurRang:[null,Validators.required],
+      demandeurDateNaiss:[null,Validators.required],
+      demandeurLieuNaiss:[null,Validators.required],
+      demandeurNationalite:[null,Validators.required]
+      })
+
+      this.demandeExtraitForm1.get('demandeurPrenom')?.valueChanges.subscribe( res =>{
+        this.hasText = res.trim() !== ''
+      })
+  }
 
   onNext() {
     this.currentStep++;
@@ -39,10 +42,18 @@ export class CardBirthComponent {
     this.currentStep--;
   }
   onSubmit() {
-    if (this.demandeExtraitForm.valid) {
-      const demande = this.demandeExtraitForm.value;
+    if (this.demandeExtraitForm1.valid) {
+      const demande = this.demandeExtraitForm1.value;
       // Envoyez la demande au serveur ou effectuez d'autres opérations ici
       console.log('Demande soumise avec succès!', demande);
+    }
+  }
+
+  // Que des lettres
+  onKeyPress(event: KeyboardEvent) {
+    // Empêcher la saisie de chiffres
+    if (event.key && /^[a-zA-ZÀ-ÿ\s']$/.test(event.key)) {
+      event.preventDefault();
     }
   }
 

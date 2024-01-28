@@ -8,77 +8,218 @@
         {{ currentStep }}
       </div>
     </div>
-  
     <div *ngIf="currentStep === 1">
     <div class="circle" ></div>
-      <h3>L'Enfant / Demandeur</h3>
-      <form>
+      <h3>Information du demandeur</h3>
+      <form [formGroup]="demandeExtraitForm1">
         <!-- Formulaire Étape 1 -->
         <div class="form-group">
-          <label>Prénoms:</label>
-          <input type="text" class="form-control" formControlName="demandeurNom">
+          <label for="validationServer01" class="form-label">Prénoms:</label>
+          <div class="input-group">
+            <span class="input-group-text ">
+              <i class="bi bi-person-vcard"></i>
+            </span>
+          <input type="text" formControlName="demandeurPrenom"
+          class="form-control" id="validationServer01">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurPrenom'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-person-check"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
+         </div>
         </div>
         <div class="form-group">
-          <label>Nom: </label>
+          <label class="form-label">Nom: </label>
+          <div class="input-group">
+          <span class="input-group-text ">
+            <i class="bi bi-person-vcard"></i>
+          </span>
           <input type="text" class="form-control" formControlName="demandeurNom">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurNom'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-person-check-fill"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
+        </div>
         </div>
         <div class="form-group mt-2">
           <label for="sexeLabel">Sexe : </label>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="masculinCheckbox" name="sexe" value="masculin">
+            <input class="form-check-input" type="radio" id="masculinCheckbox" name="demandeurSexe" value="masculin"
+            formControlName="demandeurSexe" checked>
             <label class="form-check-label" for="masculinCheckbox">M</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="femininCheckbox" name="sexe" value="feminin">
+            <input class="form-check-input" type="radio" id="femininCheckbox" name="demandeurSexe" value="feminin"
+            formControlName="demandeurSexe">
             <label class="form-check-label" for="femininCheckbox">F</label>
           </div>
         </div> 
         <div class="form-group">
-          <label for="rangNaissanceMere">Rang de naissance chez la mère :</label>
-          <input class="form-control" type="number" id="rangNaissanceMere" name="rangNaissanceMere">
-        </div>  
-        <div class="form-group">
-          <label for="dateNaissanceMere">Né(e) le :</label>
-          <input class="form-control" type="date" id="dateNaissanceMere" name="dateNaissanceMere">
+          <label for="rangNaissanceMere" class="form-label">Rang de naissance chez la mère :</label>
+          <div class="input-group">
+            <span class="input-group-text ">
+              <i class="bi bi-123"></i>
+            </span>
+          <input class="form-control" type="number" id="rangNaissanceMere" name="rangNaissanceMere" 
+          formControlName="demandeurRang">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurRang'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-check2-circle"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
+        </div> 
         </div>
-                     
         <div class="form-group">
-          <label>Lieu de Naissance:</label>
-          <input type="text" class="form-control" formControlName="demandeurPrenom">
+          <label for="dateNaissanceMere" class="form-label">Né(e) le :</label>
+          <div class="input-group">
+            <span class="input-group-text ">
+              <i class="bi bi-calendar-event"></i>
+            </span>
+          <input class="form-control" type="date" id="dateNaissanceMere" name="dateNaissanceMere"
+          formControlName="demandeurDateNaiss">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurDateNaiss'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-calendar2-check"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
+        </div>
+        </div>        
+        <div class="form-group">
+          <label class="form-label">Lieu de Naissance:</label>
+          <div class="input-group">
+            <span class="input-group-text ">
+              <i class="bi bi-house"></i>
+            </span>
+          <input type="text" class="form-control" formControlName="demandeurLieuNaiss">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurLieuNaiss'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-house-check"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
+        </div>
         </div>
         <div class="form-group">
-          <label>Nationalité:</label>
-          <input type="email" class="form-control" formControlName="demandeurEmail">
+          <label class="form-label">Nationalité:</label>
+          <div class="input-group">
+            <span class="input-group-text ">
+              <i class="bi bi-person-vcard"></i>
+            </span>
+          <input type="email" class="form-control" formControlName="demandeurNationalite">
+          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurNationalite'].valid">
+            <!-- Bootstrap "valid" class for the checkmark icon -->
+            <span class="input-group-text is-valid">
+              <i class="bi bi-person-check-fill"></i>
+              <!-- This will display the Bootstrap "valid" styling -->
+            </span>
+          </div>
         </div>
-        <button type="button" class="btn btn-primary my-3" (click)="onNext()">Suivant</button>
+        </div>
+        <button type="button" class="btn btn-primary my-3" (click)="onNext()"
+        [disabled]="demandeExtraitForm1.invalid">Suivant</button>
       </form>
     </div>
   
     <div *ngIf="currentStep === 2">
         <div class="circle"></div> 
-      <h2>Étape 2: Détails des Parents</h2>
+      <h2>Détails des Parents</h2>
       <form>
         <!-- Formulaire Étape 2 -->
-        <div class="form-group">
-          <label>Nom du Parent:</label>
-          <input type="text" class="form-control" formControlName="parentNom">
-        </div>
-        <div class="form-group">
-          <label>Prénom du Parent:</label>
-          <input type="text" class="form-control" formControlName="parentPrenom">
-        </div>
-        <div class="form-group"> 
-            <label>Adresse Email du Parent:
-                <small>(Obligatoire pour la confirmation de l’inscription)
-                    <i class="fa fa-info-circle text-muted"></i></small>
-            </label>
-            <input type="email" class="form-control" formControlName="parentEmail">
-        </div>
+        <fieldset>
+          <legend>Père</legend>
+          <div class="form-group">
+            <label>Nom:</label>
+            <input type="text" class="form-control" formControlName="pere">
+            </div>
+            <div class="form-group">
+              <label>Prénoms:</label>  
+              <input type="text" class="form-control" formControlName="prenomPere">
+            </div>
+            <div class="form-group">
+              <label>Date de naissance:</label>  
+              <input type="date" class="form-control" formControlName="dateNaissancePere">
+            </div>
+            <div class="form-group">
+              <label>Adresse:</label>  
+              <input type="text" class="form-control" formControlName="AddressePere">
+            </div>
+            <div class="formm-group">
+              <label>Profession:</label>
+              <input type="text" class="form-control" formControlName="professionPere">
+              </div>
+              <div class="formm-group">
+                <label>Nationalité:</label>
+                <input type="text" class="form-control" formControlName="nationalitePere">
+                </div>
+        </fieldset>
+        <fieldset>
+          <legend>Mère</legend>
+          <div class="form-group">
+            <label>Nom:</label>
+            <input type="text" class="form-control" formControlName="mere">
+            </div>
+            <div class="form-group">
+              <label>Prénoms:</label>  
+              <input type="text" class="form-control" formControlName="prenomMere">
+            </div>
+            <div class="form-group">
+              <label>Date de naissance:</label>  
+              <input type="date" class="form-control" formControlName="dateNaissanceMere">
+            </div>
+            <div class="form-group">
+              <label>Adresse:</label>  
+              <input type="text" class="form-control" formControlName="AddresseMere">
+            </div>
+            <div class="formm-group">
+              <label>Profession:</label>
+              <input type="text" class="form-control" formControlName="professionMere">
+              </div>
+              <div class="formm-group">
+                <label>Nationalité:</label>
+                <input type="text" class="form-control" formControlName="nationaliteMere">
+                </div>
+        </fieldset>
         <div class="d-flex justify-content-between align-items-center">
         <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">Précédent</button>
-        <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onSubmit()">Soumettre</button>
+        <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onNext()">Suivant</button>
         </div>
       </form>
+      </div>
+      <div *ngIf="currentStep === 3">
+        <div class="circle"></div> 
+        <h2>Déclarant</h2>
+        <form>
+          <div class="form-group">
+            <label>Nom:</label>
+            <input type="text" class="form-control" formControlName="nomDemandeur">
+          </div>
+          <div class="form-group">
+            <label>Prénoms:</label>
+            <input type="text" class="form-control" formControlName="prenomDemandeur">
+          </div>
+          <div class="form-group">
+            <label>Adresse:</label>
+            <input type="text" class="form-control" formControlName="adresseDemandeur">
+          </div>
+          <div class="form-group">
+            <label>Lien de parenté:</label>
+            <input type="text" class="form-control" formControlName="LienDemandeur">
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">Précédent</button>
+            <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onSubmit()">Soumettre</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
