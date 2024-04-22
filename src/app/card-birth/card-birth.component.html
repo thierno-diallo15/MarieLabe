@@ -1,341 +1,605 @@
 <div class="form-card w-100 bg-light">
-  <h3 class="text-center">Acte De Naissance</h3>   
+  <h3 class="text-center">Certificat de Naissance</h3>
   <div class="container mt-2">
     <div class="row gy-4 gy-md-0 mb-7 mb-mobile">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="progress-bar bg-white">
-      <div class="progress" [style.width]="(currentStep - 1) * 50 + '%'">
-        {{ currentStep }}
-      </div>
-        <ng-container *ngIf="currentStep === 2">
-          <div class="d-flex justify-content-start">
-            <i class="bi bi-check-circle" style="color:green"></i>
+        <div class="progress-bar bg-white w-50">
+          <div class="progress" [style.width]="(currentStep - 1) * 50 + '%'">
+            {{ currentStep }}
           </div>
-        </ng-container>
-        <ng-container *ngIf="currentStep === 3">
-          <div class="d-flex justify-content-center">
-            <i class="bi bi-check-circle" style="color:green"></i>
-          </div>
-        </ng-container>
-    </div>
-    <div *ngIf="currentStep === 1">
-    <div class="container">
-      <div class="card bg-light">
-      <h5 class="card-header text-white bg-primary">Information du demandeur</h5>
-      <div class="card-body">
-      <form [formGroup]="demandeExtraitForm1">
-        <!-- Formulaire Étape 1 -->
-        <div class="row">
-          <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label for="validationServer01" class="form-label">Prénoms:</label>
-          <div class="input-group">
-            <span class="input-group-text ">
-              <i class="bi bi-person-vcard"></i>
-            </span>
-          <input type="text" formControlName="demandeurPrenom"
-          class="form-control" id="validationServer01">
-          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurPrenom'].valid">
-            <!-- Bootstrap "valid" class for the checkmark icon -->
-            <span class="input-group-text is-valid">
-              <i class="bi bi-person-check"></i>
-              <!-- This will display the Bootstrap "valid" styling -->
-            </span>
-          </div>
-         </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label class="form-label">Nom: </label>
-          <div class="input-group">
-          <span class="input-group-text ">
-            <i class="bi bi-person-vcard"></i>
-          </span>
-          <input type="text" class="form-control" formControlName="demandeurNom">
-          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurNom'].valid">
-            <!-- Bootstrap "valid" class for the checkmark icon -->
-            <span class="input-group-text is-valid">
-              <i class="bi bi-person-check-fill"></i>
-              <!-- This will display the Bootstrap "valid" styling -->
-            </span>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <div class="form-group">
-              <label for="rangNaissanceMere" class="form-label">Rang de naissance chez la mère :</label>
-              <div class="input-group">
-                <span class="input-group-text ">
-                  <i class="bi bi-123"></i>
-                </span>
-              <input class="form-control" type="number" id="rangNaissanceMere" name="rangNaissanceMere" 
-              formControlName="demandeurRang">
-              <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurRang'].valid">
-                <!-- Bootstrap "valid" class for the checkmark icon -->
-                <span class="input-group-text is-valid">
-                  <i class="bi bi-check2-circle"></i>
-                  <!-- This will display the Bootstrap "valid" styling -->
-                </span>
-              </div>
-            </div> 
+          <ng-container *ngIf="currentStep === 2">
+            <div class="d-flex justify-content-start">
+              <i class="bi bi-check-circle" style="color:green"></i>
             </div>
+          </ng-container>
+          <ng-container *ngIf="currentStep === 3">
+            <div class="d-flex justify-content-center">
+              <i class="bi bi-check-circle" style="color:green"></i>
             </div>
-          <div class="col-md-6 mb-3">
-        <div class="form-group mt-4">
-          <label for="sexeLabel">Sexe : </label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="masculinCheckbox" name="demandeurSexe" value="masculin"
-            formControlName="demandeurSexe" checked>
-            <label class="form-check-label" for="masculinCheckbox">M</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="femininCheckbox" name="demandeurSexe" value="feminin"
-            formControlName="demandeurSexe">
-            <label class="form-check-label" for="femininCheckbox">F</label>
-          </div>
+          </ng-container>
+          <ng-container *ngIf="currentStep === 4">
+            <div class="d-flex justify-content-end">
+              <i class="bi bi-check-circle" style="color:green"></i>
+            </div>
+          </ng-container>
         </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label for="dateNaissanceMere" class="form-label">Né(e) le :</label>
-          <div class="input-group">
-            <span class="input-group-text ">
-              <i class="bi bi-calendar-event"></i>
-            </span>
-          <input class="form-control" type="date" id="dateNaissanceMere" name="dateNaissanceMere"
-          formControlName="demandeurDateNaiss">
-          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurDateNaiss'].valid">
-            <!-- Bootstrap "valid" class for the checkmark icon -->
-            <span class="input-group-text is-valid">
-              <i class="bi bi-calendar2-check"></i>
-              <!-- This will display the Bootstrap "valid" styling -->
-            </span>
-          </div>
-        </div>
-        </div>  
-        </div>
-        <div class="col-md-6 mb-3">      
-        <div class="form-group">
-          <label class="form-label">Lieu de Naissance:</label>
-          <div class="input-group">
-            <span class="input-group-text ">
-              <i class="bi bi-house"></i>
-            </span>
-          <input type="text" class="form-control" formControlName="demandeurLieuNaiss">
-          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurLieuNaiss'].valid">
-            <!-- Bootstrap "valid" class for the checkmark icon -->
-            <span class="input-group-text is-valid">
-              <i class="bi bi-house-check"></i>
-              <!-- This will display the Bootstrap "valid" styling -->
-            </span>
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-        <div class="form-group">
-          <label class="form-label">Nationalité:</label>
-          <div class="input-group">
-            <span class="input-group-text ">
-              <i class="bi bi-person-vcard"></i>
-            </span>
-          <input type="email" class="form-control" formControlName="demandeurNationalite">
-          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurNationalite'].valid">
-            <!-- Bootstrap "valid" class for the checkmark icon -->
-            <span class="input-group-text is-valid">
-              <i class="bi bi-person-check-fill"></i>
-              <!-- This will display the Bootstrap "valid" styling 
+        <div *ngIf="currentStep === 1">
+          <div class="container">
+            <div class="card bg-light">
+              <h5 class="card-header text-white bg-primary">Information du demandeur</h5>
+              <div class="card-body">
+                <form [formGroup]="demandeExtraitForm1">
+                  <!-- Formulaire Étape 1 -->
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="validationServer01" class="form-label">Prénoms:</label>
+                        <div class="input-group">
+                          <span class="input-group-text ">
+                            <i class="bi bi-person-vcard"></i>
+                          </span>
+                          <input type="text" formControlName="demandeurPrenom" class="form-control"
+                            id="validationServer01">
+                          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurPrenom'].valid">
+                            <!-- Bootstrap "valid" class for the checkmark icon -->
+                            <span class="input-group-text is-valid">
+                              <i class="bi bi-person-check"></i>
+                              <!-- This will display the Bootstrap "valid" styling -->
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label class="form-label">Nom: </label>
+                        <div class="input-group">
+                          <span class="input-group-text ">
+                            <i class="bi bi-person-vcard"></i>
+                          </span>
+                          <input type="text" class="form-control" formControlName="demandeurNom">
+                          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurNom'].valid">
+                            <!-- Bootstrap "valid" class for the checkmark icon -->
+                            <span class="input-group-text is-valid">
+                              <i class="bi bi-person-check-fill"></i>
+                              <!-- This will display the Bootstrap "valid" styling -->
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="rangNaissanceMere" class="form-label">Rang de naissance chez la mère :</label>
+                        <div class="input-group">
+                          <span class="input-group-text ">
+                            <i class="bi bi-123"></i>
+                          </span>
+                          <input class="form-control" type="number" id="rangNaissanceMere" name="rangNaissanceMere"
+                            formControlName="demandeurRang">
+                          <div class="input-group-append" *ngIf="demandeExtraitForm1.controls['demandeurRang'].valid">
+                            <!-- Bootstrap "valid" class for the checkmark icon -->
+                            <span class="input-group-text is-valid">
+                              <i class="bi bi-check2-circle"></i>
+                              <!-- This will display the Bootstrap "valid" styling -->
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group mt-4">
+                        <label for="sexeLabel">Sexe : </label>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" id="masculinCheckbox" name="demandeurSexe"
+                            value="masculin" formControlName="demandeurSexe" checked>
+                          <label class="form-check-label" for="masculinCheckbox">M</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" id="femininCheckbox" name="demandeurSexe"
+                            value="feminin" formControlName="demandeurSexe">
+                          <label class="form-check-label" for="femininCheckbox">F</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="dateNaissanceMere" class="form-label">Né(e) le :</label>
+                        <div class="input-group">
+                          <span class="input-group-text ">
+                            <i class="bi bi-calendar-event"></i>
+                          </span>
+                          <input class="form-control" type="date" id="dateNaissanceMere" name="dateNaissanceMere"
+                            formControlName="demandeurDateNaiss">
+                          <div class="input-group-append"
+                            *ngIf="demandeExtraitForm1.controls['demandeurDateNaiss'].valid">
+                            <!-- Bootstrap "valid" class for the checkmark icon -->
+                            <span class="input-group-text is-valid">
+                              <i class="bi bi-calendar2-check"></i>
+                              <!-- This will display the Bootstrap "valid" styling -->
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label class="form-label">Lieu de Naissance:</label>
+                        <div class="input-group">
+                          <span class="input-group-text ">
+                            <i class="bi bi-house"></i>
+                          </span>
+                          <input type="text" class="form-control" formControlName="demandeurLieuNaiss">
+                          <div class="input-group-append"
+                            *ngIf="demandeExtraitForm1.controls['demandeurLieuNaiss'].valid">
+                            <!-- Bootstrap "valid" class for the checkmark icon -->
+                            <span class="input-group-text is-valid">
+                              <i class="bi bi-house-check"></i>
+                              <!-- This will display the Bootstrap "valid" styling -->
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Nationalité:</label>
+                    <div class="input-group">
+                      <span class="input-group-text ">
+                        <i class="bi bi-person-vcard"></i>
+                      </span>
+                      <input type="email" class="form-control" formControlName="demandeurNationalite">
+                      <div class="input-group-append"
+                        *ngIf="demandeExtraitForm1.controls['demandeurNationalite'].valid">
+                        <!-- Bootstrap "valid" class for the checkmark icon -->
+                        <span class="input-group-text is-valid">
+                          <i class="bi bi-person-check-fill"></i>
+                          <!-- This will display the Bootstrap "valid" styling 
                 à mettre dans le button suivant
                 [disabled]="demandeExtraitForm1.invalid"
               -->
-            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary my-3" (click)="onNext()">Suivant
+                      <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div *ngIf="currentStep === 2">
+          <div class="circle"></div>
+          <div class="container">
+            <div class="card bg-light">
+              <h5 class="card-header text-white bg-primary">Information des parents</h5>
+              <div class="card-body">
+                <form [formGroup]="demandeExtraitForm2">
+                  <!-- Formulaire Étape 2 -->
+                  <fieldset>
+                    <legend>Père</legend>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label class="form-label">Nom:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="pere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['pere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                  à mettre dans le button suivant
+                  [disabled]="demandeExtraitForm1.invalid"
+                -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label class="form-label">Prénoms:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="prenomPere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['prenomPere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                    à mettre dans le button suivant
+                    [disabled]="demandeExtraitForm1.invalid"
+                  -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label>Date de naissance:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-calendar-event"></i>
+                            </span>
+                            <input type="date" class="form-control" formControlName="dateNaissancePere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['dateNaissancePere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-calendar2-check"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                    à mettre dans le button suivant
+                    [disabled]="demandeExtraitForm1.invalid"
+                  -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label>Adresse:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-house"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="addressePere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['addressePere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-house-check"></i>
+                                <!-- This will display the Bootstrap "valid" styling -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="formm-group">
+                          <label>Profession:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-workspace"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="professionPere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['professionPere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-check2-circle"></i>
+                                <!-- This will display the Bootstrap "valid" styling -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="formm-group">
+                          <label>Nationalité:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="nationalitePere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['nationalitePere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                      à mettre dans le button suivant
+                      [disabled]="demandeExtraitForm1.invalid"
+                    -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <legend>Mère</legend>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label class="form-label">Nom:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="mere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['mere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                  à mettre dans le button suivant
+                  [disabled]="demandeExtraitForm1.invalid"
+                -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label>Prénoms:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="prenomMere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['prenomMere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                    à mettre dans le button suivant
+                    [disabled]="demandeExtraitForm1.invalid"
+                  -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label>Date de naissance:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-calendar-event"></i>
+                            </span>
+                            <input type="date" class="form-control" formControlName="dateNaissanceMere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['dateNaissanceMere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-calendar2-check"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                    à mettre dans le button suivant
+                    [disabled]="demandeExtraitForm1.invalid"
+                  -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <label>Adresse:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-house"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="addresseMere">
+                            <div class="input-group-append" *ngIf="demandeExtraitForm2.controls['addresseMere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-house-check"></i>
+                                <!-- This will display the Bootstrap "valid" styling -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <div class="formm-group">
+                          <label>Profession:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-workspace"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="professionMere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['professionMere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-check2-circle"></i>
+                                <!-- This will display the Bootstrap "valid" styling -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="formm-group">
+                          <label>Nationalité:</label>
+                          <div class="input-group">
+                            <span class="input-group-text ">
+                              <i class="bi bi-person-vcard"></i>
+                            </span>
+                            <input type="text" class="form-control" formControlName="nationaliteMere">
+                            <div class="input-group-append"
+                              *ngIf="demandeExtraitForm2.controls['nationaliteMere'].valid">
+                              <!-- Bootstrap "valid" class for the checkmark icon -->
+                              <span class="input-group-text is-valid">
+                                <i class="bi bi-person-check-fill"></i>
+                                <!-- This will display the Bootstrap "valid" styling 
+                      à mettre dans le button suivant
+                      [disabled]="demandeExtraitForm1.invalid"
+                    -->
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">
+                      <i class="bi bi-arrow-left-circle"></i>
+                      Précédent</button>
+                    <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onNext()">Suivant
+                      <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-primary my-3" (click)="onNext()">Suivant
-          <i class="bi bi-arrow-right-circle"></i>
-        </button>
+        <div *ngIf="currentStep === 3">
+          <div class="card bg-light w-100">
+            <h5 class="card-header text-white bg-primary">Information du Déclarant</h5>
+            <div class="card-body">
+              <form [formGroup]="demandeExtraitForm3">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Nom:</label>
+                      <div class="input-group">
+                        <span class="input-group-text ">
+                          <i class="bi bi-person-vcard"></i>
+                        </span>
+                        <input type="text" class="form-control" formControlName="nomDeclarant">
+                        <div class="input-group-append" *ngIf="demandeExtraitForm3.controls['nomDeclarant'].valid">
+                          <!-- Bootstrap "valid" class for the checkmark icon -->
+                          <span class="input-group-text is-valid">
+                            <i class="bi bi-person-check-fill"></i>
+                            <!-- This will display the Bootstrap "valid" styling 
+                  à mettre dans le button suivant
+                  [disabled]="demandeExtraitForm1.invalid"
+                -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Prénoms:</label>
+                      <div class="input-group">
+                        <span class="input-group-text ">
+                          <i class="bi bi-person-vcard"></i>
+                        </span>
+                        <input type="text" class="form-control" formControlName="prenomDeclarant">
+                        <div class="input-group-append" *ngIf="demandeExtraitForm3.controls['prenomDeclarant'].valid">
+                          <!-- Bootstrap "valid" class for the checkmark icon -->
+                          <span class="input-group-text is-valid">
+                            <i class="bi bi-person-check-fill"></i>
+                            <!-- This will display the Bootstrap "valid" styling 
+                  à mettre dans le button suivant
+                  [disabled]="demandeExtraitForm1.invalid"
+                -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Adresse:</label>
+                      <div class="input-group">
+                        <span class="input-group-text ">
+                          <i class="bi bi-house"></i>
+                        </span>
+                        <input type="text" class="form-control" formControlName="adresseDeclarant">
+                        <div class="input-group-append" *ngIf="demandeExtraitForm3.controls['adresseDeclarant'].valid">
+                          <!-- Bootstrap "valid" class for the checkmark icon -->
+                          <span class="input-group-text is-valid">
+                            <i class="bi bi-house-check"></i>
+                            <!-- This will display the Bootstrap "valid" styling -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label>Lien de parenté:</label>
+                      <div class="input-group">
+                        <span class="input-group-text ">
+                          <i class="bi bi-person-vcard"></i>
+                        </span>
+                        <input type="text" class="form-control" formControlName="lienDeclarant">
+                        <div class="input-group-append" *ngIf="demandeExtraitForm3.controls['lienDeclarant'].valid">
+                          <!-- Bootstrap "valid" class for the checkmark icon -->
+                          <span class="input-group-text is-valid">
+                            <i class="bi bi-person-check-fill"></i>
+                            <!-- This will display the Bootstrap "valid" styling 
+                  à mettre dans le button suivant
+                  [disabled]="demandeExtraitForm1.invalid"
+                -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">
+                    <i class="bi bi-arrow-left-circle"></i>
+                    Précédent</button>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    (click)=true>
+                    <i class="bi bi-send-check">
+                      Soumettre
+                    </i>
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Soumission du formulaire
+                          </h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Êtes vous sûr(e) de vouloir soumettre ce formulaire ?
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                          <div>
+                            <button type="button" class="btn btn-primary">Valider</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </form>
-      </div>
       </div>
     </div>
-    </div>
-  
-    <div *ngIf="currentStep === 2">
-        <div class="circle"></div>
-        <div class="container">
-          <div class="card bg-light">
-          <h5 class="card-header text-white bg-primary">Information des parents</h5>
-          <div class="card-body">
-      <form>
-        <!-- Formulaire Étape 2 -->
-        <fieldset>   
-          <legend>Père</legend>
-          <div class="row">
-          <div class="col-md-6 mb-3">  
-          <div class="form-group">
-            <label>Nom:</label>
-            <input type="text" class="form-control" formControlName="pere">
-            </div>
-            </div>
-            <div class="col-md-6 mb-3">  
-            <div class="form-group">
-              <label>Prénoms:</label>  
-              <input type="text" class="form-control" formControlName="prenomPere">
-            </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">  
-            <div class="form-group">
-              <label>Date de naissance:</label>  
-              <input type="date" class="form-control" formControlName="dateNaissancePere">
-            </div>
-            </div>
-            <div class="col-md-6 mb-3">  
-            <div class="form-group">
-              <label>Adresse:</label>  
-              <input type="text" class="form-control" formControlName="AddressePere">
-            </div>
-            </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6 mb-3">  
-            <div class="formm-group">
-              <label>Profession:</label>
-              <input type="text" class="form-control" formControlName="professionPere">
-              </div>
-              </div>
-              <div class="col-md-6 mb-3">  
-              <div class="formm-group">
-                <label>Nationalité:</label>
-                <input type="text" class="form-control" formControlName="nationalitePere">
-                </div>
-                </div>
-                </div>
-        </fieldset>
-        <fieldset>
-          <legend>Mère</legend>
-          <div class="row">
-          <div class="col-md-6 mb-3">  
-          <div class="form-group">
-            <label>Nom:</label>
-            <input type="text" class="form-control" formControlName="mere">
-            </div>
-            </div>
-            <div class="col-md-6 mb-3">  
-            <div class="form-group">
-              <label>Prénoms:</label>  
-              <input type="text" class="form-control" formControlName="prenomMere">
-            </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">  
-            <div class="form-group">
-              <label>Date de naissance:</label>  
-              <input type="date" class="form-control" formControlName="dateNaissanceMere">
-            </div>
-            </div>
-            <div class="col-md-6 mb-3">
-            <div class="form-group">
-              <label>Adresse:</label>  
-              <input type="text" class="form-control" formControlName="AddresseMere">
-            </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">  
-            <div class="formm-group">
-              <label>Profession:</label>
-              <input type="text" class="form-control" formControlName="professionMere">
-              </div>
-              </div>
-              <div class="col-md-6 mb-3">  
-              <div class="formm-group">
-                <label>Nationalité:</label>
-                <input type="text" class="form-control" formControlName="nationaliteMere">
-                </div>
-                </div>
-                </div>
-        </fieldset>
-        <div class="d-flex justify-content-between align-items-center">
-        <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">
-          <i class="bi bi-arrow-left-circle"></i>
-          Précédent</button>
-        <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onNext()">Suivant
-          <i class="bi bi-arrow-right-circle"></i>
-        </button>
-        </div>
-      </form>
-      </div>
-      </div>
-      </div>
-    </div>
-      <div *ngIf="currentStep === 3">
-        <div class="card bg-light w-100">
-          <h5 class="card-header text-white bg-primary">Information du Déclarant</h5>
-          <div class="card-body">
-        <form>
-          <div class="row">
-            <div class="col-md-6 mb-3">  
-          <div class="form-group">
-            <label>Nom:</label>
-            <input type="text" class="form-control" formControlName="nomDemandeur">
-          </div>
-          </div>
-          <div class="col-md-6 mb-3">  
-          <div class="form-group">
-            <label>Prénoms:</label>
-            <input type="text" class="form-control" formControlName="prenomDemandeur">
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">  
-          <div class="form-group">
-            <label>Adresse:</label>
-            <input type="text" class="form-control" formControlName="adresseDemandeur">
-          </div>
-          </div>
-          <div class="col-md-6 mb-3"> 
-          <div class="form-group">
-            <label>Lien de parenté:</label>
-            <input type="text" class="form-control" formControlName="LienDemandeur">
-          </div>
-          </div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-primary my-3" (click)="onPrevious()">
-              <i class="bi bi-arrow-left-circle"></i>
-              Précédent</button>
-            <button type="button" class="btn btn-primary my-3 ml-auto" (click)="onSubmit()">Soumettre</button>
-            </div>
-        </form>
-      </div>
-    </div>
-    </div>
-      </div>
   </div>
-  </div>
-</div>
-  
-  
 
 
 
 
 
-
-   <!--  A revoir après  ----------------------------------
+  <!--  A revoir après  ----------------------------------
 
 <div class="container bg-light">
   <div class="card bg-light">

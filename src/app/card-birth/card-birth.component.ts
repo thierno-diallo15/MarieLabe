@@ -32,6 +32,26 @@ export class CardBirthComponent implements OnInit {
       this.demandeExtraitForm1.get('demandeurPrenom')?.valueChanges.subscribe( res =>{
         this.hasText = res.trim() !== ''
       })
+      this.demandeExtraitForm2 = this.formBuilder.group({
+        pere:[null,Validators.required],
+        prenomPere:[null,Validators.required],
+        dateNaissancePere:[null,Validators.required],
+        addressePere:[null,Validators.required],
+        professionPere:[null,Validators.required],
+        nationalitePere:[null,Validators.required],
+        mere:[null,Validators.required],
+        prenomMere:[null,Validators.required],
+        dateNaissanceMere:[null,Validators.required],
+        addresseMere:[null,Validators.required],
+        professionMere:[null,Validators.required],
+        nationaliteMere:[null,Validators.required]
+      })
+      this.demandeExtraitForm3 = this.formBuilder.group({
+        nomDeclarant:[null,Validators.required],
+        prenomDeclarant:[null,Validators.required],
+        adresseDeclarant:[null,Validators.required],
+        lienDeclarant:[null,Validators.required],
+      })
   }
 
   onNext() {

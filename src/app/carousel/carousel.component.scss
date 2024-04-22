@@ -4,3 +4,9 @@
 .btn:hover{
     transform: scale(1.2);    
 }
+.rounded {
+    border-radius: 20px;
+  }
+  .carousel-item img {
+    border-radius: 20px; /* Assurez-vous que les coins des images sont également arrondis */
+  }
