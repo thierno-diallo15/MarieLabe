@@ -3,9 +3,10 @@ import { ICard } from '../models/card';
 import { CardService } from '../services/card.service';
 
 @Component({
-  selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.scss']
+    selector: 'app-card-list',
+    templateUrl: './card-list.component.html',
+    styleUrls: ['./card-list.component.scss'],
+    standalone: false
 })
 export class CardListComponent {
   cards: ICard[] = []; // Array of cards

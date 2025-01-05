@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-card-birth',
-  templateUrl: './card-birth.component.html',
-  styleUrls: ['./card-birth.component.scss']
+    selector: 'app-card-birth',
+    templateUrl: './card-birth.component.html',
+    styleUrls: ['./card-birth.component.scss'],
+    standalone: false
 })
 export class CardBirthComponent implements OnInit {
  tabNom : string [] = ["Parent","Autre"]
