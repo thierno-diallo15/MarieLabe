@@ -18,6 +18,8 @@ export class CardBirthComponent implements OnInit {
  }
   // Autres champs nécessaires
 
+  
+
   ngOnInit(): void {
     this.demandeExtraitForm1 =this.formBuilder.group({
       demandeurPrenom:[null, Validators.required],
