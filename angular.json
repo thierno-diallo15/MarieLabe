@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "docs",
             "baseHref": "/MarieLabe/",
+            "browser": "src/main.ts",
             "index": "src/index.html",
             "polyfills": [
               "zone.js"
@@ -36,8 +37,7 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
-            "browser": "src/main.ts"
+            ]
           },
           "configurations": {
             "production": {
