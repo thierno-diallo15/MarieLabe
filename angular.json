@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "docs",
             "baseHref": "/MarieLabe/",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "index": "src/index.html",
             "polyfills": [
               "zone.js"
