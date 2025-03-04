@@ -1,12 +1,136 @@
-.btn{
-    transition: all 0.3s;
+.hero-section {
+  padding: 4rem 0;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
 }
-.btn:hover{
-    transform: scale(1.2);    
+
+.welcome-text {
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
 }
-.rounded {
-    border-radius: 20px;
+
+.btn-primary-gradient {
+  background: linear-gradient(45deg, #2196F3, #1976D2);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
   }
-  .carousel-item img {
-    border-radius: 20px; /* Assurez-vous que les coins des images sont également arrondis */
+}
+
+.carousel-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+  .carousel-item {
+    height: 400px;
+    
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
   }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: white;
+    }
+  }
+
+  .carousel-control-prev {
+    left: 20px;
+  }
+
+  .carousel-control-next {
+    right: 20px;
+  }
+
+  &:hover {
+    .carousel-control-prev,
+    .carousel-control-next {
+      opacity: 1;
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1) grayscale(100);
+  }
+}
+
+.carousel-indicators {
+  bottom: 20px;
+
+  button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+
+    &.active {
+      width: 30px;
+      border-radius: 10px;
+      background-color: white;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .welcome-text {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
+
+  .carousel .carousel-item {
+    height: 300px;
+  }
+}

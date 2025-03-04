@@ -1,53 +1,70 @@
-<div class="container py-4">
-    <h2 class="mb-0 text-center">Vos demarches</h2>
-    <h3 class="fw-light fs-5 text-center">Obtenenez votre document sans tracas.</h3>
-    <div class="row gy-4 gy-md-0 mt-4 mb-7 mb-mobile">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-                <img src="https://picsum.photos/300/150?random=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Acte de Naissance</h5>
-                    <p class="card-text">Effectuez votre demande d'extrait de naissance en ligne 
-                        en quelques clics seulement.</p>
-                    <a class="btn btn-primary btn-rounded" routerLink="/birth">
-                        Commencez
-                        <i class="bi bi-arrow-right-square-fill"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-                <img src="https://picsum.photos/300/150?random=2" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Certificat de Mariage</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                        sollicitudin.</p>
-                    <a class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-                <img src="https://picsum.photos/300/150?random=3" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Certificat de Décès</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                        sollicitudin.</p>
-                    <a class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-                <img src="https://picsum.photos/300/150?random=4" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Taxe Professionnelle</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                        sollicitudin.</p>
-                    <a class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
+<section class="services-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Vos démarches</h2>
+      <h3>Obtenez vos documents administratifs en quelques clics, sans tracas.</h3>
     </div>
-</div>
+    
+    <div class="card-grid">
+      <!-- Acte de Naissance -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="https://picsum.photos/300/150?random=1" class="card-img-top" alt="Acte de Naissance">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Acte de Naissance</h5>
+          <p class="card-text">Effectuez votre demande d'extrait de naissance en ligne en quelques clics seulement.</p>
+          <a class="btn btn-primary" routerLink="/birth">
+            Commencer
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Certificat de Mariage -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="https://picsum.photos/300/150?random=2" class="card-img-top" alt="Certificat de Mariage">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Certificat de Mariage</h5>
+          <p class="card-text">Obtenez votre certificat de mariage rapidement et simplement grâce à notre service en ligne.</p>
+          <a class="btn btn-primary" routerLink="/marriage">
+            Commencer
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Certificat de Décès -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="https://picsum.photos/300/150?random=3" class="card-img-top" alt="Certificat de Décès">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Certificat de Décès</h5>
+          <p class="card-text">Demandez un certificat de décès en ligne avec notre processus simplifié et sécurisé.</p>
+          <a class="btn btn-primary">
+            En savoir plus
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Taxe Professionnelle -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="https://picsum.photos/300/150?random=4" class="card-img-top" alt="Taxe Professionnelle">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Taxe Professionnelle</h5>
+          <p class="card-text">Gérez vos taxes professionnelles en ligne et accédez à toutes les informations nécessaires.</p>
+          <a class="btn btn-primary">
+            En savoir plus
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

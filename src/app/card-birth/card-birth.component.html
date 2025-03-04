@@ -3,25 +3,24 @@
   <div class="container mt-2">
     <div class="row gy-4 gy-md-0 mb-7 mb-mobile">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="progress-bar bg-white w-50">
-          <div class="progress" [style.width]="(currentStep - 1) * 50 + '%'">
-            {{ currentStep }}
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" [style.width]="(currentStep - 1) * 33.33 + '%'"></div>
+            <div class="progress-circles">
+              <div class="progress-step">
+                <div class="progress-circle" [ngClass]="{'active': currentStep === 1, 'completed': currentStep > 1}"></div>
+                <span class="step-label" [ngClass]="{'active': currentStep === 1, 'completed': currentStep > 1}">Informations</span>
+              </div>
+              <div class="progress-step">
+                <div class="progress-circle" [ngClass]="{'active': currentStep === 2, 'completed': currentStep > 2}"></div>
+                <span class="step-label" [ngClass]="{'active': currentStep === 2, 'completed': currentStep > 2}">Parents</span>
+              </div>
+              <div class="progress-step">
+                <div class="progress-circle" [ngClass]="{'active': currentStep === 3, 'completed': currentStep > 3}"></div>
+                <span class="step-label" [ngClass]="{'active': currentStep === 3, 'completed': currentStep > 3}">Validation</span>
+              </div>
+            </div>
           </div>
-          <ng-container *ngIf="currentStep === 2">
-            <div class="d-flex justify-content-start">
-              <i class="bi bi-check-circle" style="color:green"></i>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="currentStep === 3">
-            <div class="d-flex justify-content-center">
-              <i class="bi bi-check-circle" style="color:green"></i>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="currentStep === 4">
-            <div class="d-flex justify-content-end">
-              <i class="bi bi-check-circle" style="color:green"></i>
-            </div>
-          </ng-container>
         </div>
         <div *ngIf="currentStep === 1">
           <div class="container">
@@ -158,7 +157,7 @@
                         <!-- Bootstrap "valid" class for the checkmark icon -->
                         <span class="input-group-text is-valid">
                           <i class="bi bi-person-check-fill"></i>
-                          <!-- This will display the Bootstrap "valid" styling 
+                          <!-- This will display the Bootstrap "valid" styling
                 à mettre dans le button suivant
                 [disabled]="demandeExtraitForm1.invalid"
               -->
@@ -200,7 +199,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                   à mettre dans le button suivant
                   [disabled]="demandeExtraitForm1.invalid"
                 -->
@@ -221,7 +220,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                     à mettre dans le button suivant
                     [disabled]="demandeExtraitForm1.invalid"
                   -->
@@ -245,7 +244,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-calendar2-check"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                     à mettre dans le button suivant
                     [disabled]="demandeExtraitForm1.invalid"
                   -->
@@ -306,7 +305,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                       à mettre dans le button suivant
                       [disabled]="demandeExtraitForm1.invalid"
                     -->
@@ -332,7 +331,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                   à mettre dans le button suivant
                   [disabled]="demandeExtraitForm1.invalid"
                 -->
@@ -353,7 +352,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                     à mettre dans le button suivant
                     [disabled]="demandeExtraitForm1.invalid"
                   -->
@@ -377,7 +376,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-calendar2-check"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                     à mettre dans le button suivant
                     [disabled]="demandeExtraitForm1.invalid"
                   -->
@@ -438,7 +437,7 @@
                               <!-- Bootstrap "valid" class for the checkmark icon -->
                               <span class="input-group-text is-valid">
                                 <i class="bi bi-person-check-fill"></i>
-                                <!-- This will display the Bootstrap "valid" styling 
+                                <!-- This will display the Bootstrap "valid" styling
                       à mettre dans le button suivant
                       [disabled]="demandeExtraitForm1.invalid"
                     -->
@@ -480,7 +479,7 @@
                           <!-- Bootstrap "valid" class for the checkmark icon -->
                           <span class="input-group-text is-valid">
                             <i class="bi bi-person-check-fill"></i>
-                            <!-- This will display the Bootstrap "valid" styling 
+                            <!-- This will display the Bootstrap "valid" styling
                   à mettre dans le button suivant
                   [disabled]="demandeExtraitForm1.invalid"
                 -->
@@ -501,7 +500,7 @@
                           <!-- Bootstrap "valid" class for the checkmark icon -->
                           <span class="input-group-text is-valid">
                             <i class="bi bi-person-check-fill"></i>
-                            <!-- This will display the Bootstrap "valid" styling 
+                            <!-- This will display the Bootstrap "valid" styling
                   à mettre dans le button suivant
                   [disabled]="demandeExtraitForm1.invalid"
                 -->
@@ -542,7 +541,7 @@
                           <!-- Bootstrap "valid" class for the checkmark icon -->
                           <span class="input-group-text is-valid">
                             <i class="bi bi-person-check-fill"></i>
-                            <!-- This will display the Bootstrap "valid" styling 
+                            <!-- This will display the Bootstrap "valid" styling
                   à mettre dans le button suivant
                   [disabled]="demandeExtraitForm1.invalid"
                 -->
@@ -594,64 +593,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-  <!--  A revoir après  ----------------------------------
-
-<div class="container bg-light">
-  <div class="card bg-light">
-    <h5 class="card-header text-white bg-primary">S'enregistrer</h5>
-  <div class="card-body">
-  <form>
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <label for="nomDemandeur">Nom et prénoms du demandeur: </label>
-      <input type="text" id="nomDemandeur" name="nomDemandeur" formControlName="nomDemandeur" class="form-control" required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="nomDemandeur">Nom et prénoms du demandeur: </label>
-      <input type="text" id="prenomsDemandeur" name="prenomDemandeur" formControlName="nomDemandeur" class="form-control" required>
-    </div>
-    </div>
-  </form>
-  </div>
-  </div>
-  </div>
-
-    --------------------------------------------------------
-   <div class="form-card">
-    <h2>Birth Certificate Information</h2>
-    <form (ngSubmit)="onFormSubmit(f)" #f="ngForm" class="container mt-5">
-        <div class="form-group">
-          <label for="nom">Nom :</label>
-          <input type="text" id="nom" class="form-control" formControlName="monPere" name="nom" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="prenom">Prénom :</label>
-          <input type="text" id="prenom" class="form-control"  name="prenom" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="dateNaissance">Date de naissance :</label>
-          <input type="date" id="dateNaissance" class="form-control" name="dateNaissance" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="lieuNaissance">Lieu de naissance :</label>
-          <input type="text" id="lieuNaissance" class="form-control" name="lieuNaissance" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="numeroActe">Numéro d'acte de naissance :</label>
-          <input type="text" id="numeroActe" class="form-control" name="numeroActe" required>
-        </div>
-      
-      
-        <button type="submit" class="btn btn-primary my-3 " [disabled]="!demandeExtraitForm.valid" >Suivant</button>
-      </form>
-    </div>
-    -->
+</div>

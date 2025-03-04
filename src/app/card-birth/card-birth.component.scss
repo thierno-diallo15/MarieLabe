@@ -1,94 +1,278 @@
 .form-card {
-    box-sizing: border-box;
-    position: relative;
-    width: 50%;
-    margin: 20px auto;
-    padding: 10px 30px;
-    box-shadow: lightgray 4px 4px 20px;
-  }
-  .progress {
-    height: 100%; /* Hauteur de la barre de progression intérieure */
-    width: 0; /* La barre de progression intérieure commence à zéro */
-    background-color: #007bff; /* Couleur de la barre de progression verte */
-    color: white;
-    border-radius: 4px; /* Coins arrondis de la barre de progression intérieure */
-  }
-  
-  .progress-bar {
-  height: 20px;
-  background-color: #f8d7da; /* Couleur de fond de la barre de progression (rouge pour les erreurs) */
-  border: 1px solid #d6c8c8; /* Bordure de la barre de progression */
-  border-radius: 4px; /* Coins arrondis de la barre de progression */
-  margin-bottom: 20px;
+  box-sizing: border-box;
   position: relative;
-  margin-left: 25%;
+  width: 28vw; // Réduction de la largeur
+  margin: 0 auto; // Réduit la marge du haut
+  padding: 20px 30px;
+  padding-bottom: 60px; // Augmenté pour laisser plus d'espace aux boutons
+  margin-bottom: 120px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 12px;
+  max-height: 80vh; // Hauteur maximale
+  overflow-y: auto; // Permet le défilement
+  
+  // Style de la barre de défilement
+  &::-webkit-scrollbar {
+    width: 8px;
   }
   
-  .progress-circles {
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+    &:hover {
+      background: #666;
+    }
+  }
+}
+
+// Nouvelle barre de progression moderne
+.progress-container {
+  width: 100%;
+  padding: 15px 0;
+  position: relative;
+  margin-top: -10px;
+}
+
+.progress-bar {
+  height: 3px;
+  background: #e9ecef;
+  border-radius: 10px;
+  position: relative;
+  margin: 25px auto;
+  width: 85%;
+  overflow: visible;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #81C784 100%);
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-circles {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+
+  .progress-circle {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #e9ecef;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    &.active {
+      border-color: #4CAF50;
+      transform: scale(1.1);
+
+      &::after {
+        background: #4CAF50;
+      }
+    }
+
+    &.completed {
+      border-color: #4CAF50;
+      background: #4CAF50;
+
+      &::after {
+        background: white;
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  .step-label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 4px;
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+    &.active {
+      color: #4CAF50;
+    }
+
+    &.completed {
+      color: #4CAF50;
+    }
+  }
+
+  &:not(:last-child)::after {
+    content: '';
     position: absolute;
     width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 3px;
+    background: #e9ecef;
+    top: 15px;
+    left: calc(50% + 15px);
+    z-index: -1;
   }
-  
+
+  &.completed:not(:last-child)::after {
+    background: #4CAF50;
+  }
+}
+
+// Style des champs de formulaire
+fieldset {
+  border: 2px solid #e8e9f7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.8);
+
+  legend {
+    padding: 0 10px;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+}
+
+// Style des boutons
+.btn-primary {
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+  }
+
+  i {
+    margin: 0 8px;
+  }
+}
+
+// Animations
+@keyframes scaleComplete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shine {
+  to { left: 100%; }
+}
+
+// Responsive
+@media (max-width: 1200px) {
+  .form-card {
+    width: 40vw; // Ajustement pour les écrans moyens
+  }
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    width: 85vw; // Ajustement pour les petits écrans
+    padding: 15px;
+  }
+
   .progress-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #28a745; /* Couleur du cercle vert */
-    border: 2px solid #fff;
-    transition: background-color 0.3s ease;
-  }
-  
-  .progress-circle.completed {
-    background-color: #28a745; /* Couleur du cercle vert pour les étapes complétées */
+    width: 25px;
+    height: 25px;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+    }
   }
 
-  .form-check {
-    margin-bottom: 15px;
-  }
-  
-  .form-check-label {
-    margin-right: 20px;
-  }
-  
-  .form-check-input {
-    margin-right: 10px;
-  }
-
-  fieldset {
-    border: 2px solid rgb(232, 233, 247);
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-
-  .bi-person-check,.bi-house-check,.bi-person-check-fill,.bi-calendar2-check,.bi-check2-circle,.bi-check2-circle{
-    color: #28a745;
-  }
-
-  /* Custom styling for the circular element */
-.valid-circle {
-  width: 10px;
-  height: 10px;
-  background-color: #28a745; /* Green color for validity indication */
-  border-radius: 50%; /* Creates a circular shape */
-}
-
-  
-  /* Dans votre fichier CSS personnalisé */
-@media screen and (max-width: 767px) {
-  .mb-mobile {
-    margin-bottom: 100px; /* Ajustez la valeur de la marge selon vos besoins */
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
 
-/* pour les ordinateurs et autres */
-@media screen and (min-width: 767px) {
-  .mb-mobile {
-    margin-bottom: 100px; /* Ajustez la valeur de la marge selon vos besoins */
+// Style pour le conteneur des boutons de navigation
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  margin-top: 30px;
+  position: fixed; // Changé de sticky à fixed
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-top: 1px solid #eef2f7;
+  z-index: 100; // Augmenté pour s'assurer qu'il reste au-dessus
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  width: 28vw; // Même largeur que le formulaire
+  
+  @media (max-width: 1200px) {
+    width: 40vw;
+  }
+  
+  @media (max-width: 768px) {
+    width: 85vw;
+  }
+  
+  .btn {
+    min-width: 120px;
+    padding: 10px 20px;
+
+    &.btn-previous {
+      background: linear-gradient(90deg, #e0e0e0, #f5f5f5);
+      color: #333;
+
+      &:hover {
+        background: linear-gradient(90deg, #d5d5d5, #e8e8e8);
+      }
+    }
+
+    &.btn-next {
+      background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+      }
+    }
   }
 }
-  
-  
