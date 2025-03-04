@@ -1,6 +1,13 @@
 .hero-section {
   padding: 4rem 0;
   background: linear-gradient(to right, #f8f9fa, #ffffff);
+  min-height: calc(100vh - 140px); // Hauteur minimale moins le footer et le header
+  
+  @media (max-width: 767.98px) {
+    padding: 2rem 0;
+    padding-bottom: 100px; // Espace important pour le footer
+    min-height: calc(100vh - 180px); // Ajusté pour mobile
+  }
 }
 
 .welcome-text {
@@ -42,17 +49,53 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; // Espace par défaut
+  
+  @media (max-width: 767.98px) {
+    margin-bottom: 60px; // Plus d'espace sur mobile
+  }
 }
 
 .carousel {
+  border-radius: 20px;
+  overflow: hidden;
+  
   .carousel-item {
-    height: 400px;
+    position: relative;
     
     img {
-      height: 100%;
+      height: 400px;
       object-fit: cover;
       border-radius: 20px;
       transition: transform 0.3s ease;
+      
+      @media (max-width: 767.98px) {
+        height: 300px;
+      }
+    }
+    
+    .carousel-caption {
+      @media (max-width: 767.98px) {
+        display: block !important; // Force l'affichage sur mobile
+        background: rgba(255, 255, 255, 0.8); // Fond semi-transparent
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+        border-radius: 0 0 20px 20px;
+        
+        h5 {
+          color: #000;
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+        }
+        
+        p {
+          color: #333;
+          font-size: 0.9rem;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
@@ -128,9 +171,5 @@
     h4 {
       font-size: 1.1rem;
     }
-  }
-
-  .carousel .carousel-item {
-    height: 300px;
   }
 }
